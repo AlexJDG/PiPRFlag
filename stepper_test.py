@@ -35,13 +35,27 @@ class Flag:
     def __del__(self):
         # good practise to cleanup GPIO at some point before exit
         GPIO.cleanup()
+        print("GPIO.cleanup() called.")
 
     def move(self, clockwise = True, dist = 0.25):
         self.motor.motor_run(self.GPIOPINS , 0.0018, int(dist * self.REVOLUTION), not clockwise, False, "full", .005)
 
-flag = Flag()
-status = Status.get()
+class FlagController:
+    __init__(self):
+        self.flag = Flag()
+        self.status = Status.get()
 
-flag.move(status == Status.UP)
-Status.set(Status.UP if status == Status.DOWN else Status.DOWN)
-del flag
+    def setFlagUp:
+        if self.status == Status.DOWN:
+            self.flag.move(false)
+            Status.set(Status.UP)
+
+    def setFlagDown:
+        if self.status == Status.UP:
+            self.flag.move(true)
+            Status.set(Status.DOWN)
+
+controller = FlagController()
+
+controller.setFlagUp()
+controller.setFlagDown()

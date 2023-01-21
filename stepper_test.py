@@ -40,7 +40,7 @@ class Flag:
     def move(self, clockwise = True, dist = 0.25):
         self.motor.motor_run(GpioPins , 0.0018, int(dist * REVOLUTION), not clockwise, False, "full", .005)
 
-flag = Flag(s)
+flag = Flag()
 status = Status.get()
 
 flag.move(status == Status.UP)

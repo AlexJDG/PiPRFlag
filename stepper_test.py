@@ -45,12 +45,12 @@ class FlagController:
         self.flag = Flag()
         self.status = Status.get()
 
-    def setFlagUp:
+    def setFlagUp(self):
         if self.status == Status.DOWN:
             self.flag.move(false)
             Status.set(Status.UP)
 
-    def setFlagDown:
+    def setFlagDown(self):
         if self.status == Status.UP:
             self.flag.move(true)
             Status.set(Status.DOWN)

@@ -2,6 +2,8 @@ import RPi.GPIO as GPIO
 from RpiMotorLib import RpiMotorLib
 
 class Status: 
+    UP = 'up'
+    DOWN = 'down'
     @staticmethod
     def get():
         with open('flag.txt', 'r') as file:
@@ -13,10 +15,8 @@ class Status:
         return data[0]
 
     @staticmethod
-    def set(self, status):
-        UP = 'up'
-        DOWN = 'down'
-        if status not in [UP, DOWN]:
+    def set(status):
+        if status not in [Status.UP, Status.DOWN]:
             raise Exeption("Only 'up' and 'down' are valid statuses")
         with open('flag.txt', 'w') as file:
             file.writelines(status)

@@ -20,9 +20,10 @@ class Status:
             file.writelines(status)
 
 class Flag:
+    import RPi.GPIO as GPIO
+    from RpiMotorLib import RpiMotorLib
+
     def __init__():
-        from RpiMotorLib import RpiMotorLib
-            
         GpioPins = [18, 23, 24, 25]
 
         # Declare an named instance of class pass a name and motor type
@@ -30,7 +31,6 @@ class Flag:
         
 
     def __del__(self):
-        import RPi.GPIO as GPIO
         # good practise to cleanup GPIO at some point before exit
         GPIO.cleanup()
 

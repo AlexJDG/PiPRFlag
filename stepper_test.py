@@ -4,7 +4,6 @@ from RpiMotorLib import RpiMotorLib
 class Status: 
     UP = 'up'
     DOWN = 'down'
-    @staticmethod
     def get():
         with open('flag.txt', 'r') as file:
             data = file.readlines()
@@ -14,7 +13,6 @@ class Status:
             
         return data[0]
 
-    @staticmethod
     def set(status):
         if status not in [Status.UP, Status.DOWN]:
             raise Exeption("Only 'up' and 'down' are valid statuses")
@@ -43,17 +41,17 @@ class Flag:
 class FlagController:
     def __init__(self):
         self.flag = Flag()
-        self.status = Status.get()
+        self.status = Status()
 
     def setFlagUp(self):
-        if self.status == Status.DOWN:
+        if self.status.get() == Status.DOWN:
             self.flag.move(False)
-            Status.set(Status.UP)
+            self.status.set(Status.UP)
 
     def setFlagDown(self):
-        if self.status == Status.UP:
+        if self.status.get() == Status.UP:
             self.flag.move(True)
-            Status.set(Status.DOWN)
+            self.status.set(Status.DOWN)
 
 controller = FlagController()
 

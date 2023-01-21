@@ -23,7 +23,7 @@ class Status:
             file.writelines(status)
 
 class Flag:
-    def __init__():
+    def __init__(self):
         GpioPins = [18, 23, 24, 25]
 
         # Declare an named instance of class pass a name and motor type

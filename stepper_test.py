@@ -41,7 +41,7 @@ class Flag:
         self.motor.motor_run(self.GPIOPINS , 0.0018, int(dist * self.REVOLUTION), not clockwise, False, "full", .005)
 
 class FlagController:
-    __init__(self):
+    def __init__(self):
         self.flag = Flag()
         self.status = Status.get()
 

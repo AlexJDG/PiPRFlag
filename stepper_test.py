@@ -4,7 +4,7 @@ from RpiMotorLib import RpiMotorLib
 class Status: 
     UP = 'up'
     DOWN = 'down'
-    def get():
+    def get(self):
         with open('flag.txt', 'r') as file:
             data = file.readlines()
         
@@ -13,7 +13,7 @@ class Status:
             
         return data[0]
 
-    def set(status):
+    def set(self, status):
         if status not in [Status.UP, Status.DOWN]:
             raise Exeption("Only 'up' and 'down' are valid statuses")
         with open('flag.txt', 'w') as file:

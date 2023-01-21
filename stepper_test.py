@@ -25,9 +25,9 @@ class Status:
 class Flag:
     # Number of steps in a full revolution of the motor
     REVOLUTION = 512
+    GPIOPINS = [18, 23, 24, 25]
 
     def __init__(self):
-        GpioPins = [18, 23, 24, 25]
 
         # Declare an named instance of class pass a name and motor type
         self.motor = RpiMotorLib.BYJMotor("FlagMotor", "28BYJ")
@@ -38,9 +38,9 @@ class Flag:
         GPIO.cleanup()
 
     def move(self, clockwise = True, dist = 0.25):
-        self.motor.motor_run(GpioPins , 0.0018, int(dist * REVOLUTION), not clockwise, False, "full", .005)
+        self.motor.motor_run(GPIOPINS , 0.0018, int(dist * REVOLUTION), not clockwise, False, "full", .005)
 
-flag = Flag()
+flag = Flag(s)
 status = Status.get()
 
 flag.move(status == Status.UP)

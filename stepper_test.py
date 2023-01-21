@@ -23,6 +23,9 @@ class Status:
             file.writelines(status)
 
 class Flag:
+    # Number of steps in a full revolution of the motor
+    REVOLUTION = 512
+
     def __init__(self):
         GpioPins = [18, 23, 24, 25]
 
@@ -34,12 +37,10 @@ class Flag:
         # good practise to cleanup GPIO at some point before exit
         GPIO.cleanup()
 
-    # Number of steps in a full revolution of the motor
-    REVOLUTION = 512
-    def move(clockwise = True, dist = 0.25):
+    def move(self, clockwise = True, dist = 0.25):
         self.motor.motor_run(GpioPins , 0.0018, int(dist * REVOLUTION), not clockwise, False, "full", .005)
 
-flag = Flag()
+flag = Flag(s)
 status = Status.get()
 
 flag.move(status == Status.UP)

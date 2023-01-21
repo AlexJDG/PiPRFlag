@@ -1,3 +1,6 @@
+import RPi.GPIO as GPIO
+from RpiMotorLib import RpiMotorLib
+
 class Status: 
     UP = 'up'
     DOWN = 'down'
@@ -20,9 +23,6 @@ class Status:
             file.writelines(status)
 
 class Flag:
-    import RPi.GPIO as GPIO
-    from RpiMotorLib import RpiMotorLib
-
     def __init__():
         GpioPins = [18, 23, 24, 25]
 

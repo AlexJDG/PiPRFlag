@@ -52,8 +52,3 @@ class FlagController:
         if self.status.get() == Status.UP:
             self.flag.move(True)
             self.status.set(Status.DOWN)
-
-controller = FlagController()
-
-controller.setFlagUp()
-controller.setFlagDown()

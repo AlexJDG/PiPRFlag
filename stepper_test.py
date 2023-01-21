@@ -16,8 +16,8 @@ class Status:
         return data[0]
 
     @staticmethod
-    def set(status):
-        if status not in [UP, DOWN]:
+    def set(self, status):
+        if status not in [self.UP, self.DOWN]:
             raise Exeption("Only 'up' and 'down' are valid statuses")
         with open('flag.txt', 'w') as file:
             file.writelines(status)

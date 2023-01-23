@@ -21,6 +21,3 @@ def setStatus(status):
         raise Exception("Only 'up' and 'down' are valid statuses")
     with p.open('w') as file:
         file.writelines(status)
-
-
-print(getStatus())

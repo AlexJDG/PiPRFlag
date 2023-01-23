@@ -26,11 +26,11 @@ class FlagController:
         self.flag = Flag()
 
     def setFlagUp(self):
-        if Status.getStatus() == Status.DOWN:
+        if Status.DOWN in Status.getStatus():
             self.flag.move(False)
             Status.setStatus(Status.UP)
 
     def setFlagDown(self):
-        if Status.getStatus() == Status.UP:
+        if Status.UP in Status.getStatus():
             self.flag.move(True)
             Status.setStatus(Status.DOWN)

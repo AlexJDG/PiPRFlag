@@ -18,7 +18,7 @@ class Flag:
         print("GPIO.cleanup() called.")
 
     def move(self, clockwise=True, dist=0.25):
-        self.motor.motor_run(self.GPIOPINS, 0.0018, int(dist * self.REVOLUTION), clockwise, False, "half", .005)
+        self.motor.motor_run(self.GPIOPINS, 0.0018, int(dist * self.REVOLUTION), clockwise, False, "wave", .005)
 
 
 class FlagController:

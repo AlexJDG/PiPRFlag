@@ -34,3 +34,7 @@ class FlagController:
         if Status.UP in Status.getStatus():
             self.flag.move(True)
             Status.setStatus(Status.DOWN)
+
+    def testFlag(self):
+        self.flag.move(Status.UP in Status.getStatus())
+        self.flag.move(Status.UP not in Status.getStatus())
